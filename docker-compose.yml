@@ -1,0 +1,48 @@
+version: "3.7"
+services: 
+  mysql-db:
+    container_name: mydb
+    build:
+      context: ./db
+    image: uopsdod/mysql-db-01
+    ports: 
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    networks:
+      my-bridge-001:
+    volumes:
+      - db-data:/var/lib/mysql
+  java-app:
+    container_name: myapp
+    build:
+      context: ./app
+    image: uopsdod/java-app-01
+    ports:
+      - "8080:8080"
+    command: ./wait-for-it.sh mydb:3306 -- java -jar target/accessing-data-mysql-0.0.1-SNAPSHOT.jar 
+    environment:
+      - DB_HOST_IP=mydb
+    networks:
+      my-bridge-001:
+  react-web:
+    container_name: myweb
+    build:
+      context: ./web
+    image: uopsdod/react-web-01
+    command: ./wait-for-it.sh ${API_HOST_IP}:8080 -- npm start
+    ports: 
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_HOST_IP=${API_HOST_IP}
+
+
+networks:
+  my-bridge-001:
+
+volumes:
+  db-data:
+
