@@ -48,7 +48,7 @@ class UIComponent extends Component {
 				
 				<div>
 					<label>
-					Tell me the fate of 
+					Tell me the fate of: 
 					<input type="text" value={this.state.name} onChange={this.handleNameChange} />
 					</label>
 					<button onClick={this.addUser}>Ask</button>

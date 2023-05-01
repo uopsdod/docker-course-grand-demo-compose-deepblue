@@ -26,6 +26,7 @@ services:
     command: ./wait-for-it.sh mydb:3306 -- java -jar target/accessing-data-mysql-0.0.1-SNAPSHOT.jar 
     environment:
       - DB_HOST_IP=mydb
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     networks:
       my-bridge-001:
   react-web:

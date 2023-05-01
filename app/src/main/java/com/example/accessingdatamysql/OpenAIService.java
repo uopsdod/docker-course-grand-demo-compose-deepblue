@@ -1,5 +1,4 @@
 package com.example.accessingdatamysql;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,29 +69,8 @@ public class OpenAIService {
             logger.info("Text: ", text);
         } catch (Exception e) {
             e.printStackTrace();
-            return "None";
         }
 
-//        Map<String, Object> responseMap = objectMapper.readValue(response.getBody(), Map.class);
-//        String text = ((Map<String, Object>) responseMap.get("choices").get(0)).get("text").toString();
-//        System.out.println(text);
-//        String result = response.getBody();
-//        System.out.println(response.getBody());
         return text;
-
-//        String url = "https://api.openai.com/v1/completions";
-//        System.out.printf("hey001");
-
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        headers.setBearerAuth(apiKey);
-//
-//        String payload = String.format("{\"model\": \"text-davinci-003\",\"prompt\": \"%s\", \"max_tokens\": 60, \"n\": 1, \"stop\": [\"\\n\"]}", prompt);
-//
-//        HttpEntity<String> entity = new HttpEntity<>(payload, headers);
-//
-//        String response = restTemplate.postForObject(url, entity, String.class);
-//
-//        return response;
     }
 }
