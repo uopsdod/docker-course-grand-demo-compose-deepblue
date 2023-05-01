@@ -1,2 +1,2 @@
-INSERT INTO user (id, name, email) VALUES (0,'admin', 'admin@mail.com');
+INSERT INTO user (id, name, email, fate) VALUES (0,'johnny', 'johnny@mail.com', 'johnny exist at present but not in the past');
 

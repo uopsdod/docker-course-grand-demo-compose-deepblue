@@ -60,7 +60,7 @@
    * flex-direction: row;
    * flex-wrap: wrap;
    */
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   
   /* Then we define how is distributed the remaining space */
   /* justify-content: space-around; */

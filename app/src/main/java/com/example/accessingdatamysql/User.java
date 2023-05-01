@@ -1,19 +1,21 @@
 package com.example.accessingdatamysql;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Integer id;
 
 	private String name;
 
 	private String email;
+
+	private String fate;
 
 	public Integer getId() {
 		return id;
@@ -37,5 +39,13 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getFate() {
+		return fate;
+	}
+
+	public void setFate(String fate) {
+		this.fate = fate;
 	}
 }

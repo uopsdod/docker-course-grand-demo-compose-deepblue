@@ -48,10 +48,10 @@ class UIComponent extends Component {
 				
 				<div>
 					<label>
-					new user:
+					Tell me the fate of 
 					<input type="text" value={this.state.name} onChange={this.handleNameChange} />
 					</label>
-					<button onClick={this.addUser}>Add user</button>
+					<button onClick={this.addUser}>Ask</button>
 				</div>
 
 
@@ -62,9 +62,9 @@ class UIComponent extends Component {
 					<div className="margin-auto">
 					<div className="flex-container-flex-start">
 					<div className="flex-container">
-						<img className="myavatar" src={require('./avatar.jpg')} /> 
+						<img className="myavatar" src={require('./fortune_teller.png')} /> 
 						<button className="ui basic button">{user.name}</button>
-						<button className="ui basic button">{user.email}</button>					
+						<button className="ui basic button">{user.fate}</button>					
 					</div>
 					</div>
 					</div>
