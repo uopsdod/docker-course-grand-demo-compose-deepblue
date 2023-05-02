@@ -4,7 +4,7 @@ services:
     container_name: mydb
     build:
       context: ./db
-    image: uopsdod/mysql-db-01
+    image: uopsdod/deepblue-mysql-db-01
     ports: 
       - "3306:3306"
     environment:
@@ -20,7 +20,7 @@ services:
     container_name: myapp
     build:
       context: ./app
-    image: uopsdod/java-app-01
+    image: uopsdod/deepblue-java-app-01
     ports:
       - "8080:8080"
     command: ./wait-for-it.sh mydb:3306 -- java -jar target/accessing-data-mysql-0.0.1-SNAPSHOT.jar 
@@ -33,7 +33,7 @@ services:
     container_name: myweb
     build:
       context: ./web
-    image: uopsdod/react-web-01
+    image: uopsdod/deepblue-react-web-01
     command: ./wait-for-it.sh ${API_HOST_IP}:8080 -- npm start
     ports: 
       - "3000:3000"
