@@ -5,8 +5,6 @@ services:
     build:
       context: ./db
     image: uopsdod/deepblue-mysql-db-01
-    ports: 
-      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_USER=${MYSQL_USER}
