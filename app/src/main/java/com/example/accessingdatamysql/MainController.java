@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.Random;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -32,6 +34,7 @@ public class MainController {
 		// @RequestParam means it is a parameter from the GET or POST request
 
 		User n = new User();
+		n.setId(new Random().nextInt(1000000) + 1);
 		n.setName(name);
 		n.setEmail(email);
 
